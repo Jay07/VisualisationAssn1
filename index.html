@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 1</title>
+    <script src="RGraph.common.core.js"></script>
+    <script src="RGraph.bar.js"></script>
+    <script type="text/javascript">
+        function readFile(){
+            // Get selected file
+            var file = document.getElementById("inputFile").files[0];
+            // File existence
+            if (file){
+                var reader = new FileReader();
+                reader.readAsText(file, "UTF-8");
+                reader.onload = function (evt) {
+                    // Reading file contents
+                    var string = evt.target.result;
+                    alert(string);
+                }
+            }
+        }
+        window.onload = function ()
+        {
+            var bar = new RGraph.Bar({
+                id: 'cvs',
+                data: [12,13,16,15,16,19,19,12,23,16,13,24],
+                options: {
+                    textAccessible: true,
+                    gutterTop: 35,
+                    gutterLeft: 35,
+                    title: 'A basic chart',
+                    labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+                }
+            }).draw();
+        };
+    </script>
+</head>
+<body>
+    <h1>Histogram showing number of occurrences of all alphabetic characters.</h1>
+    <h3>Please select a file from your computer.</h3>
+    <form name="easyform" method="get" action="#">
+        <input type="file" id ="inputFile" name="inputFile"/>
+    </form>
+    <<canvas id="cvs" width="600" height="250">
+        [No canvas support]
+    </canvas>
+
+
+</body>
+</html>
